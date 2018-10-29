@@ -1,4 +1,16 @@
-# CSS
+# CSS (Cascading Style Sheets)
+**Table of Contents**
+- [CSS (Cascading Style Sheets)](#css-cascading-style-sheets)
+    - [Units in CSS](#units-in-css)
+    - [CSS Layout](#css-layout)
+    - [CSS Specifity](#css-specifity)
+    - [CSS Animations](#css-animations)
+- [SCSS (Sassy CSS)](#scss-sassy-css)
+    - [Nesting in SCSS](#nesting-in-scss)
+    - [Clearfix Hack](#clearfix-hack)
+    - [Mixins](#mixins)
+    - [Functions](#functions)
+    - [Extends](#extends)
 
 **Universal Selector**
 - If we want to apply css to all the elements of the webpage, then we use the universal selector. 
@@ -140,8 +152,6 @@ Example:
         animation-fill-mode: backwards;
     }
   ```
-  **Pseudo Elements and Pseudo Classes**
-    - 
 
  > [Reference Translate](https://cssreference.io/property/transform/)
 
@@ -208,6 +218,7 @@ Example:
 - In SCSS we can created a nested block inside of the parent selector.
 - `&` represents the path till the nested element. In the example below, the `&` represents the path: 
     - `.navigation li:first-child` which is the second level nest.
+- `&` is basically used when pseudo classes are involved. 
 
 ```scss
     .navigation { //parent selector
@@ -223,10 +234,106 @@ Example:
         }
     }
 ```
+## Clearfix Hack
+- Elements after a floating element will flow around it.  
+
+<img src="https://i.imgur.com/OhoR4sA.png" height="250" width="950">
+
+
+```css
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+```
+
+## Mixins
+- Mixins are here for the purpose of code reusability. DRY(Don't Repeat Yourself)
+- They are like variables that hold a chunk of code. 
+- Use `@mixin` keyword to declare a mixin. 
+- Use `@include` keyword to add mixin property to the selector. 
+
+**Syntax:**
+```scss
+//Declaring mixins
+    @mixins variableName {
+        property
+    }
+
+//using mixins 
+ nav {
+     @include variableName;
+ }
+```
+- Mixins can also take parameters which will help to define different property on some styles. 
+
+```scss
+    //declaring mixin with params
+    @mixin style-link-text($color) {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $color; 
+    }
+
+    //using mixins with params
+    @include style-link-text(red);
+```
+- When params are defined, each instance of the mixn must pass the value as an argument else it is going to throw an error.
+
+## Functions 
+- Functions are like JS functions which takes arguments, performs actions and return a value.
+
+  **Syntax:**
+
+  ```scss
+    @function functionName ($a, $b) {
+        @return //action
+    }  
+  ```
+  **Example:**
+    ```scss
+    //declare a function
+        @function divide ($a, $b) {
+            @return $a / $b;
+        }
+
+        //use function
+        nav {
+            margin: divide(300,10) * 1px;
+        }
+
+    ```
+    
+
+- `*1px` is a workaround because, when a value is returned by the `divide` function, it has no units at all which CSS cannot process. To give it a unit, we multiply it by `*1unit`
+
+## Extends 
+- Extends are kind of like Mixins, they are palceholder for styles. 
+- The difference between Mixin and Extends is that, Mixin replaces the mixin variable with the code whereas in extend, it changes the variable name of the selector above the code block with the selector it is defined inside.
+- Use extends only if the elements/selectors are related, else stick with mixins.
+
+**Example**
+```scss 
+    //Extend Definition 
+    %btn-placeholder { //------> %btn-placeholder will get replaced by btn:link
+        padding: 10px;
+        display: inline-block;
+        text-align: center;
+    }
+
+    //Use Extend 
+     btn:link {
+         @extend %btn-placeholder
+     }
+```
 
 **Notes**
 - Sass is always written like this, no uppercase for all the letters, while SCSS is written in total capital.
 - Comment in SCSS is same as of JS. `//Comment here!` 
+
+**To Learn**
+- [ ] 
 
 **Learning Resources for SASS**
 - [SASS Official Docs](https://sass-lang.com/guide)
