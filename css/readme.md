@@ -1,4 +1,4 @@
-# Note for CSS
+# CSS
 
 **Universal Selector**
 - If we want to apply css to all the elements of the webpage, then we use the universal selector. 
@@ -34,6 +34,15 @@ Example:
 If you set `box-sizing: border-box;` on an element padding and border are included in the width and height.
 
 > [Reference Box Sizing](https://www.w3schools.com/css/css3_box-sizing.asp)
+
+**Box Types**
+
+
+<img src="https://i.imgur.com/fyh3jfl.png" height="350" width="650">
+
+**Position Scheme**
+
+<img src="https://i.imgur.com/wjYiBKz.png" height="350" width="650">
 ---
 **Clip Path**
 - The clip-path property in CSS allows you to specify a specific region of an element to display, rather than showing the complete area.
@@ -146,6 +155,8 @@ Example:
 - Change `line-height` based on the `font-size`
 - `display: block;` makes the element occupy the whole width of the display.
 - To fade something out put the `opacity: 0;`
+- Comment on CSS files is: `/* Comment */`
+- 
 ---
 
 **To Learn**
@@ -153,7 +164,71 @@ Example:
 
 ---
 
-**Learning Resources**
+**Learning Resources for CSS**
 - [Learn CSS Layout](http://learnlayout.com/)
 - [CSS Reference](https://cssreference.io)
 - [CSS MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Block Element Modifier - Naming Convention](http://getbem.com/introduction/)
+- [Atomic Design Methodology](http://atomicdesign.bradfrost.com/chapter-2/)
+
+# SCSS (Sassy CSS)
+<img src= "https://i.imgur.com/gOfK2Ko.png" height="350" width="650">
+
+- SASS and SCSS are almost the same thing, SCSS is the extension of SASS which is quite similar to CSS. 
+- SASS uses indentation without curly braces or semi-colons which can be difficult so we use SCSS, which has all the feature of SASS but it is syntatically a bit different.
+
+## Nesting in SCSS
+- In normal CSS we have create different selector for parent and the children.
+**Example: Normal CSS**
+```html
+<nav>
+    <ul class="navigation">
+        <li>About us</li>
+        <li> Contact Us </li>
+        <li> Request a quote</li>
+    </ul>
+</nav>
+```
+```css
+    .navigation {
+        list-style: none;
+    }
+    .navigation li {
+        display: inline-block;
+        margin-left: 30px;
+    }
+
+    .navigation li:first-child {
+        margin: 0;
+    }
+```
+> Resource: [CodePen Nesting](https://codepen.io/yankexe/pen/oaOvEL?editors=1100)
+---
+**Example: SCSS**
+- In SCSS we can created a nested block inside of the parent selector.
+- `&` represents the path till the nested element. In the example below, the `&` represents the path: 
+    - `.navigation li:first-child` which is the second level nest.
+
+```scss
+    .navigation { //parent selector
+        list-style: none; 
+
+        li { //first level nest
+            display: inline-block;
+            margin-left: 30px;
+
+            &:first-child { //second level nest
+                margin: 0;
+            }
+        }
+    }
+```
+
+**Notes**
+- Sass is always written like this, no uppercase for all the letters, while SCSS is written in total capital.
+- Comment in SCSS is same as of JS. `//Comment here!` 
+
+**Learning Resources for SASS**
+- [SASS Official Docs](https://sass-lang.com/guide)
+
+
