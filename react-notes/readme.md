@@ -1,9 +1,10 @@
-# Notes I took while learning React JS. 
+# React JS Notes
+
 
 ## Table of Contents: 
 1. [Basic Introduction](#basic-introduction)
 
-###  Basic Introduction
+##  Basic Introduction
 
 **Component:** Component is a Javascript function that returns HTML. We can also call the Components as View as they render elements in the display. 
 
@@ -19,7 +20,7 @@
 **Rendering to the Dom:** 
 - To render component to the DOM we need to pass the instance of the component to the ReactDOM.render(). Instance is <App />. 
 Example:
-```react 
+```jsx 
 ReactDOM.render(<App />, document.querySelector('.container'));
 instead of: 
 ReactDOM.render(App,document.querySelector('.container'));
@@ -35,7 +36,7 @@ ReactDOM.render(App,document.querySelector('.container'));
 - when we define a method that is already defined in the parent class, we can call that parent method on the parent class by calling **super**. 
 -  
 ---
-### Importing Stuffs
+## Importing Stuffs
 - **Import package and name it directly:**
     ```react
     import React, {Component} from 'react';
@@ -86,7 +87,7 @@ return(
 
 **example:**
 
-### **First Way** *(Efficient)*
+### **First Way**
 ```jsx
     class Person extends Component {
         constructor(props){
@@ -148,7 +149,50 @@ return(
         }
     }
 ```
+### **Fourth Way - Property Initializers**
+```jsx
+    class Person extends Component {
+
+        /* This is much more efficient. Here arrow function by default moves the `this` binding to the main class.
+            It is important to add semicolon (;) at the end of the block */
+        sendData = () => {
+            console.log(this.state.data)
+        }; /*Semicolon at the end of the block*/
+        render() {
+            return (
+                <form onSubmit = {e=> this.sendData(e)}>
+                    <input value = {this.state.data} onChange={e => this.setState({data: e.target.value})} />
+                    <button type="submit">Send Data</button>
+                </form>
+            );
+        }
+    }
+```
+
  ---
+ ## Object Destructing
+ - Whenever we are passing a props, it is tedious to write the whole `this.props.props.propsattr` and so on. If we have to use the props in more than one place, then it is much more difficult. To overcome this issue and other issues where we define a variable to make these statements short, we can use `Object Destructing.`
+
+**Example: 1**
+```jsx 
+    {/* Normal Way */}
+    var details = this.props.details; 
+
+    {/* ES6 Object Destructing */}
+    var { details } = this.props;
+```
+- If we have passed multiple props, then we can name them in a single line. 
+
+**Example: 2**
+```jsx 
+    {/* Normal Way */}
+    var details = this.props.details; 
+    var index = this.props.index;
+
+    {/* ES6 Object Destructing */}
+    var { details, index } = this.props;
+```
+---
 
  ## Refs
  Refs provide a way to access DOM nodes or React elements created in the render method.
@@ -217,9 +261,19 @@ There are a few good use cases for refs:
         }
     }
 ```  
-
-
  ---
+ ## Package.json Configuration
+**Difference between ~ and ^ in the file.**
+- The tilde matches the most recent minor version (the middle number). ~1.2.3 will match all 1.2.x versions but will miss 1.3.0.
+- The caret, on the other hand, is more relaxed. It will update you to the most recent major version (the first number). ^1.2.3 will match any 1.x.x release including 1.3.0, but will hold off on 2.0.0.
+
+**Save something as an Dev Dependency**
+- Dev Dependency means, the package is not needed in the production, and is requiered only for the development purpose. 
+- To install packages as dev dependecies just use `--save-dev` flag when installing a new package to the project. 
+    - **Example:**
+    
+        `npm install --save-dev path`
+---
 **Notes:** 
 - Only one component per page, because React works better with isolation of functionality.
 - put different components inside of /src/components folder for better organization. 
@@ -236,6 +290,7 @@ Example: <div> is a HTML element. <App /> is a JSX element.
             "javascript": "javascriptreact",
         }
     ```
+---
 
 ## Redux
 **Notes**

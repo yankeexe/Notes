@@ -1,3 +1,5 @@
+# Shell Notes
+
 **Sudo !!**
 - Add sudo to the previous command, without having to write the previous command. 
 Example: 
@@ -5,7 +7,9 @@ Example:
 $ apt-get install nvm
 $ sudo !!
 ```
-**Text Shortcuts**
+---
+
+## Text Shortcuts
 - Move to the start of a sentence: `ctrl+a`
 - Move to the end of a sentence: `ctrl+e`
 - To cut word by word: `ctrl+w`
@@ -17,16 +21,66 @@ $ sudo !!
 - Move forward one word: `alt+f`
 - Move backward one word: `alt+b`
 
+---
+
 **Terminate the shell session**: `ctrl+d`
+
+---
+
 **Clear the terminal**: `ctrl+l`
 
-**View Shell history**: `history`
+---
+
+## View Shell history: 
+- `history`
 - To search commands through history: `ctrl+r`
 - Use `ctrl+r` again to shuffle through the options displayed. 
 - Use `ctrl+g` to get back to where you left off before history searching
 
-**List view of all the files**: `ll`
- 
+---
+
+**List view of all the files:** `ll`
+
+---
+
+**Find Default Gateway:** `ip r`
+
+---
+
+**Basic info about PC:** `hostnamectl`
+
+---
+
+**In-Depth info about PC:** `inxi -Fxz `
+
+---
+
+**Launch apps from Terminal in the background:** 
+
+Use the `&` keyword at the end of the appname. 
+Example: 
+
+`vlc &`
+
+--- 
+
+**Print environment variables:**  `printenv`
+
+---
+
+## ZSH Configuration: 
+
+- **Create Alias with parameters**
+Usually if you want to insert parameters in zsh you have to create a function. The function name is the alias we want to create. The index off the parameters are denoted by using `$` symbol. Where `$1` resembles the first variable inpput, `$2` resembles the second variable input and so on.
+
+**Example**
+acs(){
+apt-cache search $1 | grep $1
+}
+
+- The above command places the variable in both the places when you type it the first time.
+---
+
 
 
 

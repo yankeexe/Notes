@@ -1,9 +1,17 @@
-# These are all the VIM Note I have collected. 
+# vim Notes
+## Table of Contents
 
-## Basics
 
+- [vim Notes](#vim-notes)
+    - [Table of Contents](#table-of-contents)
+    - [Navigation](#navigation)
+        - [Cursor Movement](#cursor-movement)
+        - [Line](#line)
+        - [Word](#word)
+        - [Window](#window)
+    - [Copying and Pasting](#copying-and-pasting)
 ## Navigation
-
+---
 ### Cursor Movement 
 - move right: l 
 - move left: h
@@ -27,9 +35,9 @@
 - move to the top of the current window: H (high)
 - move to the middle of the current window: M (middle)
 - move to the bottom of the current window: L (low)
+---
 
-
-### Copying and Pasting 
+## Copying and Pasting 
 - start visual for selection: v
 - copy the whole sentence: V 
 - copy the selected text: y
