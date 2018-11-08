@@ -3,16 +3,25 @@
 # Notes on CSS - SCSS :nail_care:
 
 **Table of Contents**
-- [Notes on CSS - SCSS](#notes-on-css---scss)
+- [Notes on CSS - SCSS :nail_care:](#notes-on-css---scss-nailcare)
 - [CSS (Cascading Style Sheets)](#css-cascading-style-sheets)
     - [Units in CSS](#units-in-css)
-    - [CSS Layout](#css-layout)
     - [CSS Typography](#css-typography)
-    - [CSS Specifity](#css-specifity)
+    - [Basic Responsive Design Principles](#basic-responsive-design-principles)
+    - [CSS Layout](#css-layout)
+        - [CSS Layout Types](#css-layout-types)
+        - [width vs. max-width](#width-vs-max-width)
+        - [Center Block Elements](#center-block-elements)
+        - [:not pseudo class elements](#not-pseudo-class-elements)
+        - [calc() function](#calc-function)
+        - [Attribute Selector []](#attribute-selector)
+        - [Clearfix Hack](#clearfix-hack)
+            - [Method 1](#method-1)
+            - [Method 2](#method-2)
+    - [CSS Specificity](#css-specificity)
     - [CSS Animations](#css-animations)
 - [SCSS (Sassy CSS)](#scss-sassy-css)
     - [Nesting in SCSS](#nesting-in-scss)
-    - [Clearfix Hack](#clearfix-hack)
     - [Mixins](#mixins)
     - [Functions](#functions)
     - [Extends](#extends)
@@ -223,6 +232,49 @@ Example:
   }
   ```
 
+### Clearfix Hack
+
+Whenever we want to position our elements different from the normal flow of the document (top to bottom), we use the `float` property which will either position the element to the **right** or the **left** side.
+
+Since we have disrupted the normal flow, the elements below the floating items will either affect the floating elements above or the applied style wont' work at all like `margins` since it will be applied below the floating elements.
+
+If we have set `float: left` then we can clear the `float` property affecting other elements with `clear: left`  and it is right then we use `clear: right`. But in general, we use `clear: both`
+
+`Height` of the element is also taken away when they use the `float` property. So clearfix fixes that too. And yes, you have to use clearfix  every time you use the `float` property.
+
+<img src="https://i.imgur.com/OhoR4sA.png" height="250" width="950">
+
+#### Method 1
+
+Put an empty div between the float element and normal element with the attribute `style=clear:both;` **This is not a recommended method.**
+
+**Example:**
+
+```scss
+<div with float>
+
+//empty div with clear
+<div style = "clear:both;"></div>
+
+//normal div below
+```
+
+#### Method 2
+
+If we dynamically add an empty space after the elements where we have applied `float` property then this issue will be fixed without writing any markup code.
+
+So `::after` we have added our `float` property we would want to add an empty `content` which has `clear` property set to `both`. We use `display: table;` to prevent collapsing margins between two stacked, clear-fixed containers. `display: block` can also be used, but it will not prevent collapsed margins.
+
+```css
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+```
+
+> Reference: [Clearfix Explained in Detail](https://www.fuseinteractive.ca/blog/understanding-humble-clearfix#.V6H_p2Wof6s)
+
   ### General Notes on CSS Layout
 
 - To define the absolute position of an element, we first have to set the property of its parent element to relative i.e `position: relative;`. And in accordance with the parent property, we can set the exact position of the item with `position: absolute;` property. 
@@ -380,22 +432,10 @@ Example:
         }
     }
 ```
-## Clearfix Hack
-- Elements after a floating element will flow around it.  
-- Usually used when we use the `float` property.
-
-<img src="https://i.imgur.com/OhoR4sA.png" height="250" width="950">
-
-
-```css
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-```
+---
 
 ## Mixins
+
 - Mixins are here for the purpose of code reusability. DRY(Don't Repeat Yourself)
 - They are like variables that hold a chunk of code. 
 - Use `@mixin` keyword to declare a mixin. 
