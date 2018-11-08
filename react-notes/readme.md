@@ -1,8 +1,21 @@
 # React JS Notes
 
-
-## Table of Contents: 
-1. [Basic Introduction](#basic-introduction)
+- [React JS Notes](#react-js-notes)
+    - [Basic Introduction](#basic-introduction)
+    - [Importing Stuffs](#importing-stuffs)
+    - [Comments](#comments)
+    - [this Binding](#this-binding)
+        - [**First Way**](#first-way)
+        - [**Second Way**](#second-way)
+        - [**Third Way**](#third-way)
+        - [**Fourth Way - Property Initializers**](#fourth-way---property-initializers)
+    - [Object Destructing](#object-destructing)
+    - [Refs](#refs)
+        - [**First way - Using String**](#first-way---using-string)
+        - [**Second way - Using Callback Function**](#second-way---using-callback-function)
+    - [Package.json Configuration](#packagejson-configuration)
+    - [Redux](#redux)
+        - [ReduxForm](#reduxform)
 
 ##  Basic Introduction
 
@@ -55,9 +68,9 @@ It is same as writing:
 **State:**
 - It is a plain javascript object used to record and react to user events. 
 - Whenever a state is changed, the component re-renders along with its childrens. 
- 
+ ---
 ## Comments
----
+
 
 comment inside JSX: `{/* Comment Goes Here! */}`
     - These comments are written usually inside the `return` statement, anywhere else we can use regular comments with `//`
@@ -80,7 +93,8 @@ return(
 )
 ```
  ---
- ## `this` Binding 
+
+## this Binding 
  - `this` refers to the parent class in general. 
  - when we are writing `this` inside of the `render()` method, we are refering to the class in which it is called. 
  - when we have other helper function inside of the class, then the `this` mentioned inside the helper function is refering to the function itself. To make it refer to the parent class, we need to `bind` it to the parent class. 
@@ -170,7 +184,7 @@ return(
 ```
 
  ---
- ## Object Destructing
+## Object Destructing
  - Whenever we are passing a props, it is tedious to write the whole `this.props.props.propsattr` and so on. If we have to use the props in more than one place, then it is much more difficult. To overcome this issue and other issues where we define a variable to make these statements short, we can use `Object Destructing.`
 
 **Example: 1**
@@ -194,7 +208,7 @@ return(
 ```
 ---
 
- ## Refs
+## Refs
  Refs provide a way to access DOM nodes or React elements created in the render method.
 
 **When to Use Refs**
@@ -262,7 +276,7 @@ There are a few good use cases for refs:
     }
 ```  
  ---
- ## Package.json Configuration
+## Package.json Configuration
 **Difference between ~ and ^ in the file.**
 - The tilde matches the most recent minor version (the middle number). ~1.2.3 will match all 1.2.x versions but will miss 1.3.0.
 - The caret, on the other hand, is more relaxed. It will update you to the most recent major version (the first number). ^1.2.3 will match any 1.x.x release including 1.3.0, but will hold off on 2.0.0.
