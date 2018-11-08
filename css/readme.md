@@ -1,6 +1,6 @@
 
 
-# Notes on CSS - SCSS 
+# Notes on CSS - SCSS :nail_care:
 
 **Table of Contents**
 - [Notes on CSS - SCSS](#notes-on-css---scss)

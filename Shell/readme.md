@@ -1,4 +1,4 @@
-# Shell Notes
+# Shell Notes :black_large_square:
 
 **Sudo !!**
 - Add sudo to the previous command, without having to write the previous command. 
@@ -62,7 +62,7 @@ Example:
 
 `vlc &`
 
---- 
+---
 
 **Print environment variables:**  `printenv`
 
@@ -84,4 +84,4 @@ apt-cache search $1 | grep $1
 
 
 
- 
+

@@ -1,4 +1,4 @@
-# vim Notes
+# vim Notes :spiral_notepad:
 ## Table of Contents
 
 

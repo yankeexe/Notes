@@ -1,4 +1,4 @@
-# React JS Notes
+# React JS Notes :atom_symbol:
 
 - [React JS Notes](#react-js-notes)
     - [Basic Introduction](#basic-introduction)
@@ -28,7 +28,7 @@
 - JSX makes our much more cleaner, because writing the same code in plain JS would be a pain.
 - wherever we use JSX we need to import the React package. 
 - for multi-line JSX, we need to use () paranthesis after return keyword. 
- ---
+---
 
 **Rendering to the Dom:** 
 - To render component to the DOM we need to pass the instance of the component to the ReactDOM.render(). Instance is <App />. 
@@ -68,15 +68,15 @@ It is same as writing:
 **State:**
 - It is a plain javascript object used to record and react to user events. 
 - Whenever a state is changed, the component re-renders along with its childrens. 
- ---
+---
 ## Comments
 
 
 comment inside JSX: `{/* Comment Goes Here! */}`
-    - These comments are written usually inside the `return` statement, anywhere else we can use regular comments with `//`
-    - Don't put the comment on the very first line of the return statement as it will throw an error. Use it after a sentence. 
-    - Example: 
-  
+​    - These comments are written usually inside the `return` statement, anywhere else we can use regular comments with `//`
+​    - Don't put the comment on the very first line of the return statement as it will throw an error. Use it after a sentence. 
+​    - Example: 
+
 **Wrong Way**
 ```jsx
 return(
@@ -92,7 +92,7 @@ return(
     {/* Comment here is fine */}
 )
 ```
- ---
+---
 
 ## this Binding 
  - `this` refers to the parent class in general. 
@@ -183,7 +183,7 @@ return(
     }
 ```
 
- ---
+---
 ## Object Destructing
  - Whenever we are passing a props, it is tedious to write the whole `this.props.props.propsattr` and so on. If we have to use the props in more than one place, then it is much more difficult. To overcome this issue and other issues where we define a variable to make these statements short, we can use `Object Destructing.`
 
@@ -248,7 +248,7 @@ There are a few good use cases for refs:
             );
         }
     }
-```  
+```
 
 ### **Second way -  Using Callback Function**
 ```jsx
@@ -274,8 +274,8 @@ There are a few good use cases for refs:
             );
         }
     }
-```  
- ---
+```
+---
 ## Package.json Configuration
 **Difference between ~ and ^ in the file.**
 - The tilde matches the most recent minor version (the middle number). ~1.2.3 will match all 1.2.x versions but will miss 1.3.0.
